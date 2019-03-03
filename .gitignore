@@ -4,6 +4,19 @@ LinAlgFormulas.pdf
 /data/hack-judg-criteria.jpg
 /data/hack-team-advice.jpg
 /data/Penobscot_0-1000ms.npy
+/data/adam_fracs
+/data/oga-data
+/data/companies_data.csv
+/data/fb_edges.csv
+/data/fb_nodes.csv
+/data/latex_symbols.pdf
+/data/Oil_Gas_Production_All_Years.xlsx
+/data/penobscot_scroller.gif
+/data/penobscot_scroller.mp4
+/data/quakers_edgelist.csv
+/data/quakers_nodelist.csv
+/data/ricker_frequencies.gif
+/data/rolling_points.gif
 /notebooks/__pycache__
 /notebooks/.ipynb_checkpoints
 /notebooks/maths_learning.ipynb
@@ -17,3 +30,4 @@ LinAlgFormulas.pdf
 /notebooks/Network_graph_example.ipynb
 /notebooks/Regex_find_depths.ipynb
 /notebooks/sandbox.ipynb
+/.vscode
