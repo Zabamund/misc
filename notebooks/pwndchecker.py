@@ -1,3 +1,22 @@
+########################################################
+#
+# Acknowledgements:
+#
+# The idea for this code came from this video: youtu.be/hhUb5iknVJs
+# made by the great guys at Computerphile: youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA
+#
+# Mike Pound: twitter.com/_mikepound?lang=en
+# actually provided his own Python code to achieve the same result which you can
+# find here: github.com/mikepound/pwned-search
+#
+# For the hashing, I inspired myself from SomeBytes: github.com/skickar/SomeBytes
+#
+# This code would not exist without 
+# Troy Hunt: twitter.com/troyhunt?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor 
+# the creator of haveibeenpwned.com
+#
+########################################################
+
 import hashlib
 import requests
 import sys
