@@ -36,7 +36,6 @@ def read_file(filename):
     pwd_list = [pwd.replace("'",'') for pwd in pwd_list]
     return pwd_list
 
-
 def make_hash(pwd):
     """
     return hashed version of a single password
@@ -91,5 +90,6 @@ if __name__ == "__main__":
     pwd_list = read_file(sys.argv[1])
     hashed_pwds = [make_hash(pwd) for pwd in pwd_list]
     for hashed_pwd in hashed_pwds:
-        test_results = query_api(hashed_pwd)
-        pwned_count(test_results, hashed_pwd)
+        api_results = query_api(hashed_pwd)
+        pwned_count(api_results, hashed_pwd)
+
