@@ -92,4 +92,5 @@ if __name__ == "__main__":
     for hashed_pwd in hashed_pwds:
         api_results = query_api(hashed_pwd)
         pwned_count(api_results, hashed_pwd)
-
+    del pwd_list, hashed_pwd, hashed_pwds, api_results
+    print('All variables have been deleted.')
