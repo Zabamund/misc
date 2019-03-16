@@ -16,6 +16,16 @@
 # the creator of haveibeenpwned.com
 #
 ########################################################
+#
+# Usage:
+#
+# $ python pwndchecker.py pwd_list.txt
+#
+# Where pwd_list.txt is of the form:
+#
+# password,password124,secret,*secret,secr*et
+#
+########################################################
 
 import hashlib
 import requests
@@ -31,9 +41,9 @@ def read_file(filename):
         password list object
     """
     with open(filename, 'r') as f:
-        pwd_list = f.readlines()
-    pwd_list = pwd_list[0].split(',')
-    pwd_list = [pwd.replace("'",'') for pwd in pwd_list]
+        data = f.readlines()
+    pwd_list_raw = data[0].split(',')
+    pwd_list = [pwd.strip() for pwd in pwd_list_raw]
     return pwd_list
 
 def make_hash(pwd):
@@ -72,18 +82,18 @@ def pwned_count(query_api_results, decoded_hash):
         - a hashed password to check
         - a list of matching suffixes for an input decoded_hash
     returns:
-        prints out the results
+        prints out the matching results
         returns None
     """
     count = 0
-    decoded_hash_section = decoded_hash[5:].lower()
+    suffix = decoded_hash[5:].lower()
     for result in query_api_results:
         clean_res = result.split(':')
-        if decoded_hash_section == clean_res[0].lower():
+        if suffix == clean_res[0].lower():
             count = int(clean_res[1])
             print(f'WARNING: {clean_res[0]} was pwned {clean_res[1]} times.')
     if count == 0:
-        print(f'CLEAR: {clean_res[0]} was not in the pwned database.')
+        print(f'CLEAR: {suffix.upper()} was not in the pwned database.')
     return
 
 if __name__ == "__main__":
