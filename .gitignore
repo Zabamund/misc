@@ -19,6 +19,9 @@ LinAlgFormulas.pdf
 /data/rolling_points.gif
 /data/mock_pwd_list.txt
 /data/M-MG-70_14.3_135.9.png
+/data/PIL_practise/
+/data/Wells_list_from_Guy_NTS_NS.xlsx
+/data/hack-team-advice.png
 /notebooks/__pycache__
 /notebooks/.ipynb_checkpoints
 /notebooks/maths_learning.ipynb
@@ -35,4 +38,8 @@ LinAlgFormulas.pdf
 /notebooks/Striplog_practise.ipynb
 /notebooks/Email_from_python.ipynb
 /notebooks/Solve_equation.ipynb
+/notebooks/Persistance.ipynb
+/notebooks/Pillow_images.ipynb
+/notebooks/Well_renaming.ipynb
+/notebooks/maths_practise.ipynb
 /.vscode
