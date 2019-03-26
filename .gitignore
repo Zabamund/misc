@@ -20,7 +20,7 @@ LinAlgFormulas.pdf
 /data/mock_pwd_list.txt
 /data/M-MG-70_14.3_135.9.png
 /data/PIL_practise/
-/data/Wells_list_from_Guy_NTS_NS.xlsx
+/data/AnneE
 /data/hack-team-advice.png
 /notebooks/__pycache__
 /notebooks/.ipynb_checkpoints
@@ -42,4 +42,5 @@ LinAlgFormulas.pdf
 /notebooks/Pillow_images.ipynb
 /notebooks/Well_renaming.ipynb
 /notebooks/maths_practise.ipynb
+/notebooks/Adding_filtered_col_to_DF.ipynb
 /.vscode
