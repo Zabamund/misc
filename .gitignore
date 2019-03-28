@@ -30,6 +30,7 @@
 /notebooks/demos/Email_from_python.ipynb
 
 # Minitutos
+/notebooks/minitutos/.ipynb_checkpoints/
 /notebooks/minitutos/glob.ipynb
 /notebooks/minitutos/Change_index_of_df.ipynb
 /notebooks/minitutos/Pillow_images.ipynb
