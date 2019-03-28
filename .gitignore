@@ -1,9 +1,9 @@
 # Miscellaneous files
 /.ipynb_checkpoints/
 /.vscode/
-/notebooks/__pycache__/
-/notebooks/.ipynb_checkpoints
-/notebooks/Make_notebook_list.ipynb
+/scripts/__pycache__/
+/scripts/.ipynb_checkpoints
+/scripts/Make_notebook_list.ipynb
 
 # Data files
 /data/adam_fracs/
@@ -22,22 +22,22 @@
 # Data files exceptions
 !/data/range-slider.png
 
-# Notebooks
+# Scripts
 
 # Demos
-/notebooks/demos/HC_*
-/notebooks/demos/Solve_equation.ipynb
-/notebooks/demos/Email_from_python.ipynb
+/scripts/demos/HC_*
+/scripts/demos/Solve_equation.ipynb
+/scripts/demos/Email_from_python.ipynb
 
 # Minitutos
-/notebooks/minitutos/.ipynb_checkpoints/
-/notebooks/minitutos/glob.ipynb
-/notebooks/minitutos/Change_index_of_df.ipynb
-/notebooks/minitutos/Pillow_images.ipynb
-/notebooks/minitutos/PD_Well_renaming.ipynb
-/notebooks/minitutos/PD_Adding_filtered_col_to_DF.ipynb
-/notebooks/minitutos/PD_add_new_col_w_value_by_well.ipynb
+/scripts/minitutos/.ipynb_checkpoints/
+/scripts/minitutos/glob.ipynb
+/scripts/minitutos/Change_index_of_df.ipynb
+/scripts/minitutos/Pillow_images.ipynb
+/scripts/minitutos/PD_Well_renaming.ipynb
+/scripts/minitutos/PD_Adding_filtered_col_to_DF.ipynb
+/scripts/minitutos/PD_add_new_col_w_value_by_well.ipynb
 
 # Sandboxes
-/notebooks/sandboxes/
+/scripts/sandboxes/
 
