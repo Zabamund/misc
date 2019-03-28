@@ -1,6 +1,6 @@
-# README
+# **_Portable Python Miscellany_**
 
-This repo is a **_portable python miscellany_** which is simply a collection of miscellaneous scripts and notebooks stored here so I am not tied to a specific computer.
+This repo is simply a collection of miscellaneous scripts and notebooks stored here so I am not tied to a specific computer.
 
 I have licensed them under the MIT License as found in the LICENSE.txt file and so I hope some of these files and code snippets might be of use to someone other than me.
 
