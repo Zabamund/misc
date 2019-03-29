@@ -4,6 +4,7 @@
 **/__pycache__/
 /scripts/Make_and_move_notebooks.ipynb
 /scripts/demos/enviro.py
+/scripts/mk_mv_nbs.py
 
 # Data files
 /data/adam_fracs/
