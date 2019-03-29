@@ -4,7 +4,7 @@
 /scripts/__pycache__/
 /scripts/.ipynb_checkpoints
 /scripts/Make_notebook_list.ipynb
-/enviro.envs
+/enviro.py
 
 # Data files
 /data/adam_fracs/
