@@ -1,10 +1,10 @@
 # Miscellaneous files
-/.ipynb_checkpoints/
+**/.ipynb_checkpoints/
 /.vscode/
 /scripts/__pycache__/
 /scripts/.ipynb_checkpoints
 /scripts/Make_notebook_list.ipynb
-/enviro.py
+/scripts/demos/enviro.py
 
 # Data files
 /data/adam_fracs/
