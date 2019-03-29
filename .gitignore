@@ -1,8 +1,7 @@
 # Miscellaneous files
-**/.ipynb_checkpoints/
 /.vscode/
-/scripts/__pycache__/
-/scripts/.ipynb_checkpoints
+**/.ipynb_checkpoints/
+**/__pycache__/
 /scripts/Make_notebook_list.ipynb
 /scripts/demos/enviro.py
 
