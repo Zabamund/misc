@@ -2,7 +2,7 @@
 /.vscode/
 **/.ipynb_checkpoints/
 **/__pycache__/
-/scripts/Make_notebook_list.ipynb
+/scripts/Make_and_move_notebooks.ipynb
 /scripts/demos/enviro.py
 
 # Data files
