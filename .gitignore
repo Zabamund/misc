@@ -27,7 +27,6 @@
 # Demos
 /scripts/demos/HC_*
 /scripts/demos/Solve_equation.ipynb
-/scripts/demos/Email_from_python.ipynb
 
 # Minitutos
 /scripts/minitutos/.ipynb_checkpoints/
