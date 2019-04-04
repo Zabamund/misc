@@ -22,15 +22,27 @@ import json
 import urllib
 from enviro import account_list
 
-def check_accounts(account_list):
-    for account in account_list:
-        query_api(account)
-    return
-
 def encode_account(account):
+    """
+    encode an email address for GET request
+    args:
+        email address like 'example@example.come'
+    returns:
+        encoded email string
+    """
     return urllib.parse.quote(account)
 
 def query_api(account):
+    """
+    post GET request to haveibeenpwned.com to check whether given email has been pwnd
+    args:
+        email address to check like 'example@example.com'
+
+    prints out response to CLI
+
+    returns:
+        None
+    """
     # set up and run query
     headers = {'User-Agent': 'Pwnage-Checker-For-Manjaro', 'api-version': '2', }
     url = 'https://haveibeenpwned.com/api/breachedaccount/' + encode_account(account)
@@ -55,6 +67,20 @@ def query_api(account):
         print(output)
     return
 
+def check_accounts(account_list):
+    """
+    Calls `query_api()` on each account in a list of email accounts to see if any are pwnd
+    args:
+        list of accounts to check like:
+        ['example1@example.com', 'example2@example.com', 'example3@example.com']
+    returns:
+        None
+    """
+    for account in account_list:
+        query_api(account)
+    return
+
 if __name__ == "__main__":
     check_accounts(account_list)
+    print(f'\nDone, all accounts have been checked')
 
