@@ -18,7 +18,7 @@ def seismic_plotter(colormap, section, inline, xline, timeslice):
     """Plot a chosen seismic ILine, XLine or Timeslice with a choice of colormaps"""
     
     # load a volume
-    vol = np.load('../data/Penobscot_0-1000ms.npy')
+    vol = np.load('../../data/Penobscot_0-1000ms.npy')
     
     # sections dictionary
     sections = {
