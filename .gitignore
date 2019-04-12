@@ -21,6 +21,7 @@
 /data/*.xlsx
 /data/*.npy
 /data/*.png
+/data/hack-shell-KL-teams
 # Data files exceptions
 !/data/range-slider.png
 
