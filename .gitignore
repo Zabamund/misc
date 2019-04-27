@@ -3,6 +3,7 @@
 **/.ipynb_checkpoints/
 **/__pycache__/
 /scripts/Make_and_move_notebooks.ipynb
+/scripts/Rename_notebooks_post_course.ipynb
 /scripts/demos/enviro.py
 /scripts/mk_mv_nbs.py
 
