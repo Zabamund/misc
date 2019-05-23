@@ -23,6 +23,8 @@
 /data/*.npy
 /data/*.png
 /data/hack-shell-KL-teams
+/data/SH5B_12553_55_PPL_X26_Y23.jpg
+/data/SH5B_12553_55_PPL_X26_Y23_cropped.jpg
 # Data files exceptions
 !/data/range-slider.png
 
@@ -47,4 +49,3 @@
 
 # Codewars
 /scripts/codewars/
-
