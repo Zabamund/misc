@@ -29,6 +29,7 @@
 !/data/range-slider.png
 
 # Scripts
+/scripts/minitutos/Image_cropping.ipynb
 
 # Demos
 /scripts/demos/HC_*
