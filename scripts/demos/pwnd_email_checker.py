@@ -2,8 +2,8 @@
 #
 # Acknowledgements:
 #
-# This code would not exist without 
-# Troy Hunt: twitter.com/troyhunt?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor 
+# This code would not exist without
+# Troy Hunt: twitter.com/troyhunt?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
 # the creator of haveibeenpwned.com
 #
 ########################################################
@@ -20,7 +20,8 @@
 import requests
 import json
 import urllib
-from enviro import account_list
+from enviro import account_list, haveibeenpwnd_API_key
+import time
 
 def encode_account(account):
     """
@@ -44,27 +45,34 @@ def query_api(account):
         None
     """
     # set up and run query
-    headers = {'User-Agent': 'Pwnage-Checker-For-Manjaro', 'api-version': '2', }
-    url = 'https://haveibeenpwned.com/api/breachedaccount/' + encode_account(account)
+    headers = {'User-Agent': 'Pwnage-Checker-For-Manjaro', 'hibp-api-key': haveibeenpwnd_API_key}
+    url = 'https://haveibeenpwned.com/api/v3/breachedaccount/' + encode_account(account) + '?truncateResponse=false'
     r = requests.get(url, headers=headers)
     #print(f'request status code: {r.status_code}')
-    
+
     # check result code and print output
+    if r.status_code == 401:
+        print('Bad credentials, check authorization\n')
+
     if r.status_code == 404:
-        print(f'Response code: {r.status_code}\nNot found — <{account}> has not been pwned')
+        print(f'Response code: {r.status_code} email not found — <{account}> has not been pwned\n')
         return
-    
+
     if r.status_code == 200:
         raw_results = r.text
         results = json.loads(raw_results)
         output = {}
         for res in results:
             output[res['Name']] = {'BreachDate': res['BreachDate'],
-                                 'AddedDate': res['AddedDate'], 
+                                 'AddedDate': res['AddedDate'],
                                  'IsVerified': res['IsVerified'],
                                   }
-        print(f'Response code: {r.status_code}\nemail found — <{account}> has been pwned {len(results)} times.')
+        print(f'Response code: {r.status_code} email found — <{account}> has been pwned {len(results)} times:')
         print(output)
+        print('\n')
+
+    if r.status_code == 429:
+        print('Exceeding rate limit')
     return
 
 def check_accounts(account_list):
@@ -76,11 +84,16 @@ def check_accounts(account_list):
     returns:
         None
     """
+    print('Accounts to check:\n')
+    for account in account_list:
+        print(account)
+    print('\n=======\n')
     for account in account_list:
         query_api(account)
+        time.sleep(2)
+
     return
 
 if __name__ == "__main__":
     check_accounts(account_list)
     print(f'\nDone, all accounts have been checked')
-
