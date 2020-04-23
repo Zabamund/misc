@@ -48,20 +48,19 @@ howto_check_whl
 /scripts/Fix_for_FILENAME_exists_in_filesystem.ipynb
 /scripts/Runlog.ipynb
 /scripts/enviro.py
+/scripts/token.pickle
+/scripts/token_write.pickle
+/scripts/credentials.json
 
 # Demos
 /scripts/demos/HC_*
 /scripts/demos/Solve_equation.ipynb
-/scripts/demos/credentials.json
 /scripts/demos/fbprophet_demo.ipynb
 /scripts/demos/Google_sheets_API_test0.ipynb
 /scripts/demos/Google_sheets_API_test1.ipynb
 /scripts/demos/quickstart.py
 /scripts/demos/Read_NPD_CSV_digidemo.ipynb
-/scripts/demos/token.pickle
-/scripts/demos/token_write.pickle
 /scripts/demos/.vscode/settings.json
-
 
 # Minitutos
 /scripts/minitutos/.ipynb_checkpoints/
