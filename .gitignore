@@ -60,6 +60,7 @@ howto_check_whl
 /scripts/demos/Read_NPD_CSV_digidemo.ipynb
 /scripts/demos/token.pickle
 /scripts/demos/token_write.pickle
+/scripts/demos/.vscode/settings.json
 
 
 # Minitutos
@@ -71,6 +72,7 @@ howto_check_whl
 /scripts/minitutos/PD_Adding_filtered_col_to_DF.ipynb
 /scripts/minitutos/PD_add_new_col_w_value_by_well.ipynb
 /scripts/minitutos/pwnd_email_checker.py
+/scripts/minitutos/Image_stitching.ipynb
 
 # Sandboxes
 /scripts/sandboxes/
