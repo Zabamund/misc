@@ -47,6 +47,7 @@ howto_check_whl
 /scripts/delete_conflicting_files.py
 /scripts/Fix_for_FILENAME_exists_in_filesystem.ipynb
 /scripts/Runlog.ipynb
+/scripts/enviro.py
 
 # Demos
 /scripts/demos/HC_*
