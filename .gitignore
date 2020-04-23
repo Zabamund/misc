@@ -6,6 +6,10 @@
 /scripts/Rename_notebooks_post_course.ipynb
 /scripts/demos/enviro.py
 /scripts/mk_mv_nbs.py
+2014_Book_ThePythonWorkbook.pdf
+check_gateway_for_wifi_connection
+git_internals_pluralsight.pdf
+howto_check_whl
 
 # Data files
 /data/adam_fracs/
@@ -25,15 +29,38 @@
 /data/hack-shell-KL-teams
 /data/SH5B_12553_55_PPL_X26_Y23.jpg
 /data/SH5B_12553_55_PPL_X26_Y23_cropped.jpg
+/data/stitch_test
+7K-file.dlis
+206_05a-_3_DWL_DWL_WIRE_258276498.DLIS
+/data/cat_mask.svg
+/data/json_pour_Anne.json
+/data/pie_chart.svg
+/data/runlog
+/data/test_image_mask.bmp
 # Data files exceptions
 !/data/range-slider.png
 
 # Scripts
 /scripts/minitutos/Image_cropping.ipynb
+/scripts/Check_file_ownership_for_system_python_update.ipynb
+/scripts/check_file_ownership.py
+/scripts/delete_conflicting_files.py
+/scripts/Fix_for_FILENAME_exists_in_filesystem.ipynb
+/scripts/Runlog.ipynb
 
 # Demos
 /scripts/demos/HC_*
 /scripts/demos/Solve_equation.ipynb
+/scripts/demos/credentials.json
+/scripts/demos/Email_Kata_solutions.ipynb
+/scripts/demos/fbprophet_demo.ipynb
+/scripts/demos/Google_sheets_API_test0.ipynb
+/scripts/demos/Google_sheets_API_test1.ipynb
+/scripts/demos/quickstart.py
+/scripts/demos/Read_NPD_CSV_digidemo.ipynb
+/scripts/demos/token.pickle
+/scripts/demos/token_write.pickle
+
 
 # Minitutos
 /scripts/minitutos/.ipynb_checkpoints/
