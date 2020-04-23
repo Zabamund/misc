@@ -52,7 +52,6 @@ howto_check_whl
 /scripts/demos/HC_*
 /scripts/demos/Solve_equation.ipynb
 /scripts/demos/credentials.json
-/scripts/demos/Email_Kata_solutions.ipynb
 /scripts/demos/fbprophet_demo.ipynb
 /scripts/demos/Google_sheets_API_test0.ipynb
 /scripts/demos/Google_sheets_API_test1.ipynb
