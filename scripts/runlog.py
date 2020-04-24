@@ -115,7 +115,7 @@ def make_plot(df, textstr, avg_speed, avg_distance):
     # set ylims
     min_speed = 2
     min_dist = 2
-    min_time = 25
+    min_time = 20
     max_speed = df['avg_speed'].max()
     max_dist = df['Distance'].max()
     max_yscale = max_speed if max_speed > max_dist else max_dist
