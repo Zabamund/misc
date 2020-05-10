@@ -91,8 +91,8 @@ def make_plot(df, textstr, avg_speed, avg_distance):
     d3 = par2.bar(df.index, height=df.total_time, label='Run time [min]', width=1.5, alpha=0.2, color='b')
 
     # add averages
-    d4 = host.axhline(y=avg_speed, xmin=0, xmax=1, ls='-', lw=1.5, alpha=0.3, c='r', label='Avg speed abs')
-    d5 = par1.axhline(y=avg_distance, xmin=0, xmax=1, ls='-', lw=1.5, alpha=0.3, c='g', label='Avg dist abs')
+    d4 = host.axhline(y=avg_speed, xmin=0, xmax=1, ls='-', lw=2, alpha=0.3, c='r', label='Avg speed abs')
+    d5 = par1.axhline(y=avg_distance, xmin=0, xmax=1, ls='-', lw=2, alpha=0.3, c='g', label='Avg dist abs')
 
     # add rolling means
     d6, = host.plot(df.Speed_rolling_mean, ls='dashed', lw=1.5, c='r', label='Speed roll_mean_5')
@@ -136,9 +136,9 @@ def make_plot(df, textstr, avg_speed, avg_distance):
 
     #plt.xticks(np.arange(min(x), max(x)+1, 1.0))
     host.tick_params(axis='y', colors=d1.get_color(), **tkw)
-    host.set_yticks(np.arange(math.floor(min_speed), math.ceil(max_speed) + 1, 1.0))
+    host.set_yticks(np.arange(math.floor(min_speed), math.ceil(max_yscale) + 1, 1.0))
     par1.tick_params(axis='y', colors=d2.get_color(), **tkw)
-    par1.set_yticks(np.arange(math.floor(min_dist), math.ceil(max_dist) + 1, 1.0))
+    par1.set_yticks(np.arange(math.floor(min_dist), math.ceil(max_yscale) + 1, 1.0))
     par2.tick_params(axis='y', colors='b', **tkw)
     par2.set_yticks(np.arange(math.floor(min_time), math.ceil(max_time) + 5, 5))
     host.tick_params(axis='x', **tkw)
