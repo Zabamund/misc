@@ -99,6 +99,11 @@ def make_plot(df, textstr, avg_speed, avg_distance):
     d7, = par1.plot(df.Distance_rolling_mean, ls='dashed', lw=1.5, c='g', label='Dist roll_mean_5')
     d8, = par2.plot(df.Runtime_rolling_mean, ls='dashed', lw=1.5, c='b', label='Time roll_mean_5')
 
+    # add time lines
+    time_line_formats = {'xmin':0, 'xmax': 1, 'ls':'dashed', 'lw':1, 'alpha':0.3, 'c': 'b'}
+    for quarter_hour in range(30, 195, 15):
+        par2.axhline(y=quarter_hour, **time_line_formats, label=f'{quarter_hour}min')
+
     # add PB's
     pb_speed = (df.loc[df['avg_speed'] == df['avg_speed'].max()].index[0], df.loc[df['avg_speed'] == df['avg_speed'].max()]['avg_speed'][0])
     pb_distance = (df.loc[df['Distance'] == df['Distance'].max()].index[0], df.loc[df['Distance'] == df['Distance'].max()]['Distance'][0])
