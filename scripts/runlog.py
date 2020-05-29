@@ -74,7 +74,7 @@ def make_patch_spines_invisible(ax):
         sp.set_visible(False)
 
 
-def make_plot(df, textstr, avg_speed, avg_distance):
+def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     """Make run plot"""
     fig, host = plt.subplots(figsize=(20,10), nrows=1, ncols=1)
     # create a second plot that is offset and only shows one spine
@@ -111,15 +111,18 @@ def make_plot(df, textstr, avg_speed, avg_distance):
     par1.plot(pb_distance[0], pb_distance[1], marker='*', c='g', markersize=15)
 
     # dress up the plot
-    start_date = df.index[0].date()
-    host.set_title(f"Rob's run log from {start_date} to {date.today()}", fontsize=14)
+    try:
+        end_plot = end_plot.date()
+    except AttributeError:
+        end_plot = end_plot
+    host.set_title(f"Rob's run log from {start_plot} to {end_plot}", fontsize=14)
     host.grid()
     host.set_xticks(ticks=df.index)
     host.set_xticklabels(df.index.date, rotation=90, fontsize=10)
 
     # set ylims
-    min_speed = 2
-    min_dist = 2
+    min_speed = 1
+    min_dist = 1
     min_time = 20
     max_speed = df['avg_speed'].max()
     max_dist = df['Distance'].max()
@@ -162,8 +165,19 @@ def make_plot(df, textstr, avg_speed, avg_distance):
     plt.show()
     return
 
-
 if __name__ == "__main__":
     df, textstr, avg_speed, avg_distance = make_df_from_csv(sys.argv[1])
+    start_plot, end_plot = df.index[0], df.index[-1]
+    try:
+        if sys.argv[2]:
+            start_plot = sys.argv[2]
+    except IndexError:
+        pass
+    try:
+        if sys.argv[3]:
+            end_plot = sys.argv[3]
+    except IndexError:
+        pass
+    df = df[start_plot:end_plot]
     check_progress_rate(df)
-    make_plot(df, textstr, avg_speed, avg_distance)
+    make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot)
