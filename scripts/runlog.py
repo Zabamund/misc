@@ -12,6 +12,10 @@ def make_df_from_csv(fname):
     df = pd.read_csv(fname)
     df.index = pd.to_datetime(df['DateTime'])
     df.drop(columns=['DateTime'], inplace=True)
+
+    return df
+
+def calculate_stats(df):
     df['total_time'] = df.index.hour * 60 + df.index.minute + df.index.second / 60
     df['avg_speed'] = df.Distance / df.total_time * 60
     pb_dist = df['Distance'].max()
@@ -25,7 +29,7 @@ def make_df_from_csv(fname):
     df['Distance_rolling_mean'] = df['Distance'].rolling(5).mean()
     df['Runtime_rolling_mean'] = df['total_time'].rolling(5).mean()
 
-    title1 = r"$\bf{Overall\ stats:}$"
+    title1 = r"$\bf{Period\ stats:}$"
     title2 = r"$\bf{Last\ run:}$"
     textstr = f'''
     {title1}
@@ -48,7 +52,7 @@ def make_df_from_csv(fname):
     if pb_speed == last_speed:
         print(f'New PB speed! {pb_speed:.2f}km/hr')
 
-    return df, textstr, avg_speed, avg_distance
+    return textstr, avg_speed, avg_distance
 
 
 def check_progress_rate(df):
@@ -166,7 +170,7 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     return
 
 if __name__ == "__main__":
-    df, textstr, avg_speed, avg_distance = make_df_from_csv(sys.argv[1])
+    df = make_df_from_csv(sys.argv[1])
     start_plot, end_plot = df.index[0], df.index[-1]
     try:
         if sys.argv[2]:
@@ -179,5 +183,6 @@ if __name__ == "__main__":
     except IndexError:
         pass
     df = df[start_plot:end_plot]
+    textstr, avg_speed, avg_distance = calculate_stats(df)
     check_progress_rate(df)
     make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot)
