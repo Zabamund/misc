@@ -24,6 +24,9 @@ def read_runlog(PATH, newrun):
 
 
 if __name__ == '__main__':
-    newrun = sys.argv[1]
-    test_newrun(newrun)
-    read_runlog(PATH, newrun)
+    try:
+        newrun = sys.argv[1]
+        test_newrun(newrun)
+        read_runlog(PATH, newrun)
+    except IndexError:
+        print('New run must follow the exact pattern: `"YYYY-MM-DD HH:MM:SS,KK.MM"`')
