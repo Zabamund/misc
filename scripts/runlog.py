@@ -120,7 +120,7 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     except AttributeError:
         end_plot = end_plot
     host.set_title(f"Rob's run log from {start_plot} to {end_plot}", fontsize=14)
-    host.grid()
+    #host.grid()
     host.set_xticks(ticks=df.index)
     host.set_xticklabels(df.index.date, rotation=90, fontsize=10)
 
