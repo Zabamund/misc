@@ -90,8 +90,8 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     par2.spines["right"].set_visible(True)
 
     # plot the data
-    d1, = host.plot(df.avg_speed, "o-", label="Avg speed [km/h]", c='r')
-    d2, = par1.plot(df.Distance, "o-", label="Distance [km]", c='g')
+    d1, = host.plot(df.avg_speed, "o-", label="Avg speed [km/h]", c='r', markersize=4)
+    d2, = par1.plot(df.Distance, "o-", label="Distance [km]", c='g', markersize=4)
     d3 = par2.bar(df.index, height=df.total_time, label='Run time [min]', width=1.5, alpha=0.2, color='b')
 
     # add averages
