@@ -51,6 +51,7 @@ howto_check_whl
 /scripts/token.pickle
 /scripts/token_write.pickle
 /scripts/credentials.json
+/scripts/credentials.json*
 
 # Demos
 /scripts/demos/HC_*
