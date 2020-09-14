@@ -1,0 +1,3 @@
+Reservoir,grv_avg,grv_std,phi_avg,phi_std,ntg_avg,ntg_std,sw_avg,sw_std,fvf_avg,fvf_std
+sand_1,5000,500,0.3,0.03,0.8,0.08,0.3,0.03,1.04,0.104
+sand_2,7000,700,0.2,0.02,0.7,0.07,0.25,0.025,1.05,0.105
