@@ -55,6 +55,13 @@ def calculate_stats(df):
     return textstr, avg_speed, avg_distance
 
 
+def days_since_last_run(df):
+    """check if more than a week since last run"""
+    last_run_date = df.index[-1]
+    penultimate_run_date = df.index[-2]
+    return (last_run_date - penultimate_run_date).days
+
+
 def check_progress_rate(df):
     """Warn if distance delta between last run and previous week max is > 10%"""
     last_run_dist = df['Distance'][-1]
@@ -70,11 +77,6 @@ def check_progress_rate(df):
         print(f'The last run exceeded the previous week max by {(last_run_dist - last_week_max) * 100 / last_week_max:.0f}%.')
     return
 
-def days_since_last_run(df):
-    """check if more than a week since last run"""
-    last_run_date = df.index[-1]
-    penultimate_run_date = df.index[-2]
-    return (last_run_date - penultimate_run_date).days
 
 def make_patch_spines_invisible(ax):
     ax.set_frame_on(True)
@@ -132,7 +134,7 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     # set ylims
     min_speed = 1
     min_dist = 1
-    min_time = 20
+    min_time = 15
     max_speed = df['avg_speed'].max()
     max_dist = df['Distance'].max()
     max_yscale = max_speed if max_speed > max_dist else max_dist
