@@ -70,6 +70,11 @@ def check_progress_rate(df):
         print(f'The last run exceeded the previous week max by {(last_run_dist - last_week_max) * 100 / last_week_max:.0f}%.')
     return
 
+def days_since_last_run(df):
+    """check if more than a week since last run"""
+    last_run_date = df.index[-1]
+    penultimate_run_date = df.index[-2]
+    return (last_run_date - penultimate_run_date).days
 
 def make_patch_spines_invisible(ax):
     ax.set_frame_on(True)
@@ -184,5 +189,6 @@ if __name__ == "__main__":
         pass
     df = df[start_plot:end_plot]
     textstr, avg_speed, avg_distance = calculate_stats(df)
-    check_progress_rate(df)
+    if days_since_last_run(df) <= 7:
+        check_progress_rate(df)
     make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot)
