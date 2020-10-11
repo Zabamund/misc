@@ -1,7 +1,7 @@
 import sys
 import re
 
-PATH = '/media/DATA/code/misc/data/runlog'
+PATH = '/home/geodev/Data/code/misc/data/runlog'
 
 def test_newrun(newrun):
     pattern = r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{1,3}\.\d{2}'
