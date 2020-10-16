@@ -123,6 +123,10 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
 
     # dress up the plot
     try:
+        start_plot = start_plot.date()
+    except AttributeError:
+        start_plot = start_plot
+    try:
         end_plot = end_plot.date()
     except AttributeError:
         end_plot = end_plot
