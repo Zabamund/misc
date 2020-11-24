@@ -16,17 +16,23 @@ def make_hist(df, start_plot, end_plot):
     except AttributeError:
         _end_plot = end_plot
 
-    plt.subplots(figsize=(20,10))
-    bins = np.arange(0,21,2)
-    sns.distplot(df, 
-                bins=bins,
-                axlabel='Distance bins [km]',
-                rug=True,
+    dist_min, dist_max = np.floor(df.Distance.min()), np.ceil(df.Distance.max())
+
+    _, ax = plt.subplots(figsize=(20, 10))
+    bins = np.arange(dist_min-1, dist_max+1, 1)
+    sns.histplot(data=df,
+                ax=ax,     
+                kde=True,          
                 )
     plt.title(f"Rob's run distribution from {_start_plot} to {_end_plot}", fontsize=14)
+    plt.xlabel('Distance [km]')
+    sns.rugplot(data=df,
+                ax=ax,
+                )
     plt.xticks(ticks=bins)
-    plt.show()
-    return
+    plt.grid(c='k', alpha=0.2)
+    plt.show() 
+    return None
 
 
 if __name__ == "__main__":
