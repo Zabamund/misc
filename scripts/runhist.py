@@ -2,6 +2,7 @@ import sys
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from scipy import stats
 
 from runlog import make_df_from_csv
 
@@ -29,8 +30,14 @@ def make_hist(df, start_plot, end_plot):
     sns.rugplot(data=df,
                 ax=ax,
                 )
+    mean, median, perc25, perc75 = df.Distance.mean(), df.Distance.median(), df.Distance.describe().loc['25%'], df.Distance.describe().loc['75%']
+    ax.axvline(mean, color='k', linestyle='-', lw=2, label='mean')
+    ax.axvline(median, color='r', linestyle='--', lw=2, label='median')
+    ax.axvline(perc25, color='g', linestyle='--', lw=2, label='25 percentile')
+    ax.axvline(perc75, color='b', linestyle='--', lw=2, label='75 percentile')
     plt.xticks(ticks=bins)
     plt.grid(c='k', alpha=0.2)
+    ax.legend()
     plt.show() 
     return None
 
