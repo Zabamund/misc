@@ -38,6 +38,9 @@ settings.json
 /data/pie_chart.svg
 /data/runlog
 /data/test_image_mask.bmp
+/data/reading_files
+/data/plant_catalog.xml
+/data/test_encodings_ascii
 # Data files exceptions
 !/data/range-slider.png
 
@@ -53,6 +56,10 @@ settings.json
 /scripts/token_write.pickle
 /scripts/credentials.json
 /scripts/credentials.json*
+/scripts/demos/Chardet.ipynb
+/scripts/demos/Martins_pandas_demo.ipynb
+/scripts/Email_Kata_howto.ipynb
+/scripts/Weightlog.ipynb
 
 # Demos
 /scripts/demos/HC_*
