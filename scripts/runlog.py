@@ -97,8 +97,16 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     par2.spines["right"].set_visible(True)
 
     # plot the data
-    d1, = host.plot(df.avg_speed, "o-", label="Avg speed [km/h]", c='r', markersize=4)
-    d2, = par1.plot(df.Distance, "o-", label="Distance [km]", c='g', markersize=4)
+    plot_marker = {'d1_small': 'o-', 'd1_large': '-', 'd2_small': "o-", 'd2_large': '-'}
+    if df.shape[0] > 75:
+        style_d1 = plot_marker['d1_large']
+        style_d2 = plot_marker['d2_large']
+    else:
+        style_d1 = plot_marker['d1_small']
+        style_d2 = plot_marker['d2_small']
+
+    d1, = host.plot(df.avg_speed, style_d1, label="Avg speed [km/h]", c='r', markersize=4)
+    d2, = par1.plot(df.Distance, style_d2, label="Distance [km]", c='g', markersize=4)
     d3 = par2.bar(df.index, height=df.total_time, label='Run time [min]', width=1.5, alpha=0.2, color='b')
 
     # add averages
@@ -131,9 +139,10 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     except AttributeError:
         end_plot = end_plot
     host.set_title(f"Rob's run log from {start_plot} to {end_plot}", fontsize=14)
-    #host.grid()
-    host.set_xticks(ticks=df.index)
-    host.set_xticklabels(df.index.date, rotation=90, fontsize=10)
+    
+    if df.shape[0] <= 75:
+        host.set_xticks(ticks=df.index)
+        host.set_xticklabels(df.index.date, rotation=90, fontsize=10)
 
     # set ylims
     min_speed = 1
