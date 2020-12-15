@@ -87,6 +87,7 @@ def make_patch_spines_invisible(ax):
 
 def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     """Make run plot"""
+    small_df = 75
     fig, host = plt.subplots(figsize=(20,10), nrows=1, ncols=1)
     # create a second plot that is offset and only shows one spine
     fig.subplots_adjust(right=0.75)
@@ -98,15 +99,15 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
 
     # plot the data
     plot_marker = {'d1_small': 'o-', 'd1_large': '-', 'd2_small': "o-", 'd2_large': '-'}
-    if df.shape[0] > 75:
+    if df.shape[0] > small_df:
         style_d1 = plot_marker['d1_large']
         style_d2 = plot_marker['d2_large']
     else:
         style_d1 = plot_marker['d1_small']
         style_d2 = plot_marker['d2_small']
 
-    d1, = host.plot(df.avg_speed, style_d1, label="Avg speed [km/h]", c='r', markersize=4)
-    d2, = par1.plot(df.Distance, style_d2, label="Distance [km]", c='g', markersize=4)
+    d1, = host.plot(df.avg_speed, style_d1, label="Avg speed [km/h]", c='r', markersize=4, lw=1)
+    d2, = par1.plot(df.Distance, style_d2, label="Distance [km]", c='g', markersize=4, lw=1)
     d3 = par2.bar(df.index, height=df.total_time, label='Run time [min]', width=1.5, alpha=0.2, color='b')
 
     # add averages
@@ -140,7 +141,7 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
         end_plot = end_plot
     host.set_title(f"Rob's run log from {start_plot} to {end_plot}", fontsize=14)
     
-    if df.shape[0] <= 75:
+    if df.shape[0] <= small_df:
         host.set_xticks(ticks=df.index)
         host.set_xticklabels(df.index.date, rotation=90, fontsize=10)
 
