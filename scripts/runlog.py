@@ -24,10 +24,10 @@ def calculate_stats(df):
     last_speed = df['avg_speed'][-1]
     weeks = (df.index.date[-1] - df.index.date[0]).days // 7
     avg_speed = df['avg_speed'].mean()
-    df['Speed_rolling_mean'] = df['avg_speed'].rolling(5).mean()
+    df['Speed_rolling_mean'] = df['avg_speed'].rolling(10).mean()
     avg_distance = df['Distance'].mean()
-    df['Distance_rolling_mean'] = df['Distance'].rolling(5).mean()
-    df['Runtime_rolling_mean'] = df['total_time'].rolling(5).mean()
+    df['Distance_rolling_mean'] = df['Distance'].rolling(10).mean()
+    df['Runtime_rolling_mean'] = df['total_time'].rolling(10).mean()
 
     title1 = r"$\bf{Period\ stats:}$"
     title2 = r"$\bf{Last\ run:}$"
@@ -115,9 +115,9 @@ def make_plot(df, textstr, avg_speed, avg_distance, start_plot, end_plot):
     d5 = par1.axhline(y=avg_distance, xmin=0, xmax=1, ls='-', lw=2, alpha=0.3, c='g', label='Avg dist abs')
 
     # add rolling means
-    d6, = host.plot(df.Speed_rolling_mean, ls='dashed', lw=1.5, c='r', label='Speed roll_mean_5')
-    d7, = par1.plot(df.Distance_rolling_mean, ls='dashed', lw=1.5, c='g', label='Dist roll_mean_5')
-    d8, = par2.plot(df.Runtime_rolling_mean, ls='dashed', lw=1.5, c='b', label='Time roll_mean_5')
+    d6, = host.plot(df.Speed_rolling_mean, ls='-', lw=4, c='r', alpha=0.3, label='Speed roll_mean_10')
+    d7, = par1.plot(df.Distance_rolling_mean, ls='-', lw=4, c='g', alpha=0.3, label='Dist roll_mean_10')
+    d8, = par2.plot(df.Runtime_rolling_mean, ls='-', lw=4, c='b', alpha=0.3, label='Time roll_mean_10')
 
     # add time lines
     time_line_formats = {'xmin':0, 'xmax': 1, 'ls':'dashed', 'lw':1, 'alpha':0.3, 'c': 'b'}
