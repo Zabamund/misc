@@ -41,6 +41,8 @@ settings.json
 /data/reading_files
 /data/plant_catalog.xml
 /data/test_encodings_ascii
+/data/C-92_1.bed
+/data/C-92_1.fra
 # Data files exceptions
 !/data/range-slider.png
 
@@ -60,6 +62,7 @@ settings.json
 /scripts/demos/Martins_pandas_demo.ipynb
 /scripts/Email_Kata_howto.ipynb
 /scripts/Weightlog.ipynb
+/scripts/aoc/scatterplot_AoC
 
 # Demos
 /scripts/demos/HC_*
