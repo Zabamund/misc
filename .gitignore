@@ -11,6 +11,7 @@ check_gateway_for_wifi_connection
 git_internals_pluralsight.pdf
 howto_check_whl
 settings.json
+Active_Calculus_1.0.pdf
 
 # Data files
 /data/adam_fracs/
@@ -63,6 +64,8 @@ settings.json
 /scripts/Email_Kata_howto.ipynb
 /scripts/Weightlog.ipynb
 /scripts/aoc/scatterplot_AoC
+/scripts/demos/Activation_functions_demo-mtb.ipynb
+/scripts/demos/Bayes_theorem.ipynb
 
 # Demos
 /scripts/demos/HC_*
