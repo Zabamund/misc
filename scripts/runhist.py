@@ -31,9 +31,9 @@ def make_hist(df, start_plot, end_plot):
                 ax=ax,
                 )
     mean, median, perc25, perc75 = df.Distance.mean(), df.Distance.median(), df.Distance.describe().loc['25%'], df.Distance.describe().loc['75%']
-    ax.axvline(mean, color='b', linestyle='-.', lw=1.5, label='mean')
-    ax.axvline(median, color='g', linestyle='--', lw=1.5, label='median')
     ax.axvline(perc25, color='r', linestyle='-', lw=1.5, label='25 percentile')
+    ax.axvline(median, color='g', linestyle='--', lw=1.5, label='median')
+    ax.axvline(mean, color='b', linestyle='-.', lw=1.5, label='mean')
     ax.axvline(perc75, color='k', linestyle=':', lw=1.5, label='75 percentile')
     ax.text(mean, 45, f' {mean:.1f}km')
     ax.text(median, 45, f' {median:.1f}km')
