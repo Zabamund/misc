@@ -28,7 +28,6 @@ def calculate_stats(df):
     avg_distance = df['Distance'].mean()
     df['Distance_rolling_mean'] = df['Distance'].rolling(10).mean()
     df['Runtime_rolling_mean'] = df['total_time'].rolling(10).mean()
-
     title1 = r"$\bf{Period\ stats:}$"
     title2 = r"$\bf{Last\ run:}$"
     textstr = f'''
@@ -40,6 +39,7 @@ def calculate_stats(df):
     mean_speed: {df.describe().loc['mean', 'avg_speed']:.2f} km/hr
     PB distance: {df.describe().loc['max', 'Distance']} km
     PB speed: {df.describe().loc['max', 'avg_speed']:.2f} km/hr
+    Total distance: {df['Distance'].sum()} km
 
     {title2}
     ---------------
