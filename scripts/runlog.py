@@ -39,7 +39,7 @@ def calculate_stats(df):
     mean_speed: {df.describe().loc['mean', 'avg_speed']:.2f} km/hr
     PB distance: {df.describe().loc['max', 'Distance']} km
     PB speed: {df.describe().loc['max', 'avg_speed']:.2f} km/hr
-    Total distance: {df['Distance'].sum()} km
+    Total distance: {df['Distance'].sum():.2f} km
 
     {title2}
     ---------------
