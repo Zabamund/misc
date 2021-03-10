@@ -22,8 +22,9 @@ def make_hist(df, start_plot, end_plot):
     _, ax = plt.subplots(figsize=(20, 10))
     bins = np.arange(dist_min-1, dist_max+1, 1)
     sns.histplot(data=df,
-                ax=ax,     
-                kde=True,          
+                ax=ax,
+                kde=True,
+                stat='probability'
                 )
     plt.title(f"Rob's run distribution from {_start_plot} to {_end_plot}", fontsize=14)
     plt.xlabel('Distance [km]')
@@ -42,12 +43,12 @@ def make_hist(df, start_plot, end_plot):
     plt.xticks(ticks=bins)
     plt.grid(c='k', alpha=0.2)
     ax.legend()
-    plt.show() 
+    plt.show()
     return None
 
 
 if __name__ == "__main__":
-    df = make_df_from_csv(sys.argv[1])    
+    df = make_df_from_csv(sys.argv[1])
     start_plot, end_plot = df.index[0], df.index[-1]
     try:
         if sys.argv[2]:
