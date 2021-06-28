@@ -179,7 +179,7 @@ def iterate_and_send(fname, dry_run=True):
 
 
 def main(fname, dry_run):
-    iterate_and_send(fname, dry_run=dry_run)
+    _ = iterate_and_send(fname, dry_run=dry_run)
 
 if __name__ == '__main__':
     try:
