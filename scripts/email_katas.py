@@ -49,7 +49,6 @@ def send_email(challenge,
     Args
     ----
         challenge: str, challenge filename
-        #challenge_name: str, example: sequence, sample-names
         path: str, path to notebooks, example: './weekly-challenge/notebooks/'
         recipient: str, name of the recipient
         msg_to: str, email of the recipient
