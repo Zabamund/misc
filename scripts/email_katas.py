@@ -1,7 +1,5 @@
 import sys
 from distutils.util import strtobool
-import glob
-import os
 from datetime import date
 import smtplib
 from email.message import EmailMessage
