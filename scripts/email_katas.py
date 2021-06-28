@@ -26,6 +26,7 @@ def get_notebook_to_send(row, df, PATH):
     """
     for idx, col in enumerate(row):
         try:
+            # find columns (challenges) that have not been sent yet
             if np.isnan(col):
                 d = {'name': row.recipient,
                      'email': row.email,
@@ -105,6 +106,8 @@ def send_summary_email(notebooks_sent,
     ----
         notebooks_sent: dict, k is notebooks and v is list of recipients
         n: int, number of emails sent
+        msg_to: str, email of the recipient
+        msg_from: str, email to show as sender
         dry_run: bool, no email sent if True
     Returns
     -------
@@ -135,7 +138,15 @@ def send_summary_email(notebooks_sent,
 
 
 def iterate_and_send(fname, dry_run=True):
-    """Load the tracking CSV file and send emails as required."""
+    """Load the tracking CSV file and send emails as required.
+    Args
+    ----
+        fname: str, filename including target students and notebooks
+        dry_run: if True not email sent
+    Returns
+    -------
+        df: pandas DataFrame showing students and dates when notebooks sent
+    """
     # variables
     global PATH
 
@@ -143,7 +154,7 @@ def iterate_and_send(fname, dry_run=True):
     n              = 0
     challenges     = []
     notebooks_sent = {}
-    for col in df.columns[4:]:
+    for col in df.columns[[True if '.ipynb' in col else False for col in df.columns]]:
         notebooks_sent[col] = []
 
     # iterate
