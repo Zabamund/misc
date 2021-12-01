@@ -2,7 +2,7 @@ import sys
 import re
 from datetime import date
 
-PATH = '/home/geodev/Data/code/misc/data/runlog'
+PATH = '/home/geodev/data/code/misc/data/runlog'
 TODAY = date.today()
 
 def test_newrun(newrun):
