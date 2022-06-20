@@ -15,7 +15,7 @@ def test_newrun(newrun):
         newrun (str): a string with or without date
                       also indicating gear type
         gear type is one of {'r', 't', 'k', 'b'}
-        for road, track, trek or bike
+        for road, trail, trek or bike
     """
     pattern_full = r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r,t,k,b]'
     pattern_today = r'\d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r,t,k,b]'
@@ -47,10 +47,10 @@ def update_gear_mileage(PATH_GEAR, newrun):
         newrun: run details in form `'YYYY-MM-DD HH:MM:SS,KK.MM,[r,t,k,b]'`
     Notes:
         gear type is one of {'r', 't', 'k', 'b'}
-        for road, track, trek or bike
+        for road, trail, trek or bike
     """
     colnames = {'r': 'road_shoes',
-                't': 'track_shoes',
+                't': 'trail_shoes',
                 'k': 'trek_shoes',
                 'b': 'bike'
                 }
