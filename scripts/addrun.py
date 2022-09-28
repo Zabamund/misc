@@ -44,12 +44,16 @@ def update_gear_mileage(PATH_GEAR, newrun):
     """Upate mileage for a given piece of gear.
     Args:
         PATH: absolute or relative path to file, [str]
-        newrun: run details in form `'YYYY-MM-DD HH:MM:SS,KK.MM,[r,t,k,b]'`
+        newrun: run details in form `'YYYY-MM-DD HH:MM:SS,KK.MM,[r0,r1,t,k,b]'`
     Notes:
-        gear type is one of {'r', 't', 'k', 'b'}
+        gear type is one of {'r0', 'r1', 't', 'k', 'b'}
+        r0 and r1 are the main road running shoes when either there is an overlap
+        between an old and new pair, or if there are two pairs to prepare for a
+        long race.
         for road, trail, trek or bike
     """
-    colnames = {'r': 'road_shoes',
+    colnames = {'r0': 'road_shoes_0',
+                'r1': 'road_shoes_1',
                 't': 'trail_shoes',
                 'k': 'trek_shoes',
                 'b': 'bike'
