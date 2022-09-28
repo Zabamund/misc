@@ -14,11 +14,11 @@ def test_newrun(newrun):
     Args:
         newrun (str): a string with or without date
                       also indicating gear type
-        gear type is one of {'r', 't', 'k', 'b'}
+        gear type is one of {'r0', 'r1', 't', 'k', 'b'}
         for road, trail, trek or bike
     """
-    pattern_full = r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r,t,k,b]'
-    pattern_today = r'\d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r,t,k,b]'
+    pattern_full = r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r0,r1,t,k,b]'
+    pattern_today = r'\d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r0,r1,t,k,b]'
     if re.findall(pattern_full, newrun):
         return re.findall(pattern_full, newrun)[0]
     else:
@@ -76,7 +76,7 @@ if __name__ == '__main__':
         update_gear_mileage(PATH_GEAR, newrun)
     except IndexError:
         print("""New run must be provided as either:
-`"YYYY-MM-DD HH:MM:SS,KK.MM,[r,t,k,b]"`
+`"YYYY-MM-DD HH:MM:SS,KK.MM,[r0,r1,t,k,b]"`
 or
-`"HH:MM:SS,KK.MM,[r,t,k,b]"`
+`"HH:MM:SS,KK.MM,[r0,r1,t,k,b]"`
 in which case TODAY\'s date will be inserted automatically.""")
