@@ -14,11 +14,11 @@ def test_newrun(newrun):
     Args:
         newrun (str): a string with or without date
                       also indicating gear type
-        gear type is one of {'r0', 'r1', 't', 'k', 'b'}
-        for road, trail, trek or bike
+        gear type is one of {'o', 'k', 'p'}
+        for on, kinvara or peregrine
     """
-    pattern_full = r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r0,r1,t,k,b]'
-    pattern_today = r'\d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[r0,r1,t,k,b]'
+    pattern_full = r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[o,k,p]?'
+    pattern_today =                  r'\d{2}:\d{2}:\d{2},\d{1,3}\.\d{2},[o,k,p]?'
     if re.findall(pattern_full, newrun):
         return re.findall(pattern_full, newrun)[0]
     else:
@@ -31,7 +31,6 @@ def read_runlog(PATH, newrun):
         PATH: absolute or relative path to file, [str]
         newrun: run details in form `'YYYY-MM-DD HH:MM:SS,KK.MM'`
     """
-    newrun = newrun[:-2]
     with open(PATH, 'a') as f:
         newrun += '\n'
         f.write(newrun)
@@ -44,21 +43,21 @@ def update_gear_mileage(PATH_GEAR, newrun):
     """Upate mileage for a given piece of gear.
     Args:
         PATH: absolute or relative path to file, [str]
-        newrun: run details in form `'YYYY-MM-DD HH:MM:SS,KK.MM,[r0,r1,t,k,b]'`
+        newrun: run details in form `'YYYY-MM-DD HH:MM:SS,KK.MM,[o,k,p,t,b]'`
     Notes:
-        gear type is one of {'r0', 'r1', 't', 'k', 'b'}
-        r0 and r1 are the main road running shoes when either there is an overlap
+        gear type is one of {'o', 'k', 'p', 't', 'b'}
+        o and k are the main road running shoes when either there is an overlap
         between an old and new pair, or if there are two pairs to prepare for a
         long race.
         for road, trail, trek or bike
     """
-    colnames = {'r0': 'road_shoes_0',
-                'r1': 'road_shoes_1',
-                't': 'trail_shoes',
-                'k': 'trek_shoes',
+    colnames = {'o': 'oncloud',
+                'k': 'kinvara',
+                'p': 'peregrine',
+                't': 'trek_shoes',
                 'b': 'bike'
                 }
-    gear = newrun[-1]
+    gear = newrun.split(',')[-1]
     kms = float(newrun.split(',')[1])
     df = pd.read_csv(PATH_GEAR)
     df.loc[0, colnames.get(gear)] += kms
@@ -71,12 +70,12 @@ def update_gear_mileage(PATH_GEAR, newrun):
 if __name__ == '__main__':
     try:
         newrun = test_newrun(sys.argv[1])
-        if newrun[-1] in ['r', 't']:
+        if newrun.split(',')[-1] in ['o', 'k', 'p']:
             read_runlog(PATH, newrun)
         update_gear_mileage(PATH_GEAR, newrun)
     except IndexError:
         print("""New run must be provided as either:
-`"YYYY-MM-DD HH:MM:SS,KK.MM,[r0,r1,t,k,b]"`
+`"YYYY-MM-DD HH:MM:SS,KK.MM,[o,k,p,k,b]"`
 or
-`"HH:MM:SS,KK.MM,[r0,r1,t,k,b]"`
+`"HH:MM:SS,KK.MM,[o,k,p,k,b]"`
 in which case TODAY\'s date will be inserted automatically.""")
