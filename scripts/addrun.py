@@ -64,6 +64,7 @@ def update_gear_mileage(PATH_GEAR, newrun):
     kms = float(newrun.split(',')[-2])
     df = pd.read_csv(PATH_GEAR)
     df.loc[0, colnames.get(gear)] += kms
+    df.loc[0, colnames.get(gear)] = df.loc[0, colnames.get(gear)].round(2)
     df.to_csv(PATH_GEAR, index=False)
 
     print(f'{colnames.get(gear)} mileage increased by {kms}km')
